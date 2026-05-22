@@ -386,7 +386,7 @@
   </section>
 
   <footer class="dashboard-footer">
-    <p>最后更新: 2026-05-22 23:14 &nbsp;|&nbsp; Built with ❤️</p>
+    <p>最后更新: 2026-05-22 23:34 &nbsp;|&nbsp; Built with ❤️</p>
   </footer>
 </div>
 
@@ -422,12 +422,14 @@ new Chart(document.getElementById('wordsChart'), {
         datasets: [{
             data: categoryData.map(d => d.words),
             backgroundColor: ['#7c3aed', '#3b82f6', '#06b6d4', '#10b981', '#f59e0b', '#ef4444'],
+            borderWidth: 0,
         }]
     },
     options: {
         responsive: true,
+        cutout: '40%',
         plugins: {
-            legend: { position: 'right' }
+            legend: { position: 'right', labels: { boxWidth: 12, padding: 12, font: { size: 12 } } }
         }
     }
 });
