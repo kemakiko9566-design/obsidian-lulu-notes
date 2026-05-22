@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kema's Notes - 仪表盘</title>
+<meta name="description" content="Personal knowledge base & study notes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="../index.html" class="sidebar-logo">Kema's Notes</a>
+      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">&times;</button>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="../index.html" class="nav-item">🏠 仪表盘</a>
+      <a href="../mindmap.html" class="nav-item">🧠 思维导图</a>
+      <a href="../graph.html" class="nav-item">🔗 知识图谱</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">📂 分类</div>
+      
+      <a href="../categories/ai-coach.html" class="nav-item">🤖 AI coach</a>
+      
+      <a href="../categories/cet.html" class="nav-item">📝 CET</a>
+      
+      <a href="../categories/rm.html" class="nav-item">🚁 RM</a>
+      
+      <a href="../categories/project.html" class="nav-item">🚀 project</a>
+      
+      <a href="../categories/sunlike-desk-lamp.html" class="nav-item">💡 sunlike desk lamp</a>
+      
+      <a href="../categories/机器人基础.html" class="nav-item">🦾 机器人基础</a>
+      
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">📄 全部笔记</div>
+      
+      <a href="../pages/engineer-prompt.html" class="nav-item nav-note">Engineer Prompt</a>
+      
+      <a href="../pages/planer-prompt.html" class="nav-item nav-note">🧠 我的全栈成长规划（备份 Prompt）</a>
+      
+      <a href="../pages/听力.html" class="nav-item nav-note">听力</a>
+      
+      <a href="../pages/dji-matrice-4d电池dji.html" class="nav-item nav-note">Dji Matrice 4d电池dji</a>
+      
+      <a href="../pages/产品需求文档prd.html" class="nav-item nav-note">产品需求文档prd</a>
+      
+      <a href="../pages/技术架构文档arch.html" class="nav-item nav-note">技术架构文档arch</a>
+      
+      <a href="../pages/boost.html" class="nav-item nav-note">Boost</a>
+      
+      <a href="../pages/readme.html" class="nav-item nav-note">obsidian-lulu-notes</a>
+      
+      <a href="../pages/旋转矩阵.html" class="nav-item nav-note">旋转矩阵</a>
+      
+      <a href="../pages/未命名.html" class="nav-item nav-note">未命名</a>
+      
+    </nav>
+    <div class="sidebar-footer">
+      <span>🔄 <span id="noteCount">10</span> 篇笔记</span>
+      <span>Kema's Notes</span>
+    </div>
+  </aside>
+
+  <main class="main-content" id="mainContent">
+    
+<div class="dashboard">
+  <header class="dashboard-header">
+    <div>
+      <h1>Kema's Notes</h1>
+      <p class="dashboard-subtitle">Personal knowledge base & study notes</p>
+    </div>
+    <div class="dashboard-search">
+      <input type="text" id="searchInput" placeholder="搜索笔记..." class="search-input" />
+    </div>
+  </header>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon">📄</div>
+      <div class="stat-value">10</div>
+      <div class="stat-label">笔记总数</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">📂</div>
+      <div class="stat-value">6</div>
+      <div class="stat-label">分类</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">📝</div>
+      <div class="stat-value">908</div>
+      <div class="stat-label">总字数</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🖼️</div>
+      <div class="stat-value">6</div>
+      <div class="stat-label">图片附件</div>
+    </div>
+  </div>
+
+  <div class="chart-row">
+    <div class="card chart-card">
+      <h3 class="card-title">📊 各分类笔记数量</h3>
+      <canvas id="categoryChart"></canvas>
+    </div>
+    <div class="card chart-card">
+      <h3 class="card-title">📊 各分类字数统计</h3>
+      <canvas id="wordsChart"></canvas>
+    </div>
+  </div>
+
+  <section class="categories-section">
+    <h2>📂 笔记分类</h2>
+    <div class="categories-grid">
+      
+      <a href="../categories/ai-coach.html" class="category-card">
+        <div class="category-card-header">
+          <span class="category-emoji">🤖</span>
+          <span class="category-name">AI coach</span>
+        </div>
+        <div class="category-stats">
+          <span>2 篇笔记</span>
+          <span>325 字</span>
+        </div>
+        <p class="category-desc">AI 提示词与教练配置</p>
+        <div class="category-notes-preview">
+          
+          <span class="note-tag">Engineer Prompt</span>
+          
+          <span class="note-tag">🧠 我的全栈成长规划（备份 Prompt）</span>
+          
+          
+        </div>
+      </a>
+      
+      <a href="../categories/cet.html" class="category-card">
+        <div class="category-card-header">
+          <span class="category-emoji">📝</span>
+          <span class="category-name">CET</span>
+        </div>
+        <div class="category-stats">
+          <span>1 篇笔记</span>
+          <span>0 字</span>
+        </div>
+        <p class="category-desc">CET-4 英语备考</p>
+        <div class="category-notes-preview">
+          
+          <span class="note-tag">听力</span>
+          
+          
+        </div>
+      </a>
+      
+      <a href="../categories/rm.html" class="category-card">
+        <div class="category-card-header">
+          <span class="category-emoji">🚁</span>
+          <span class="category-name">RM</span>
+        </div>
+        <div class="category-stats">
+          <span>1 篇笔记</span>
+          <span>0 字</span>
+        </div>
+        <p class="category-desc">RoboMaster 机器人竞赛笔记</p>
+        <div class="category-notes-preview">
+          
+          <span class="note-tag">Dji Matrice 4d电池dji</span>
+          
+          
+        </div>
+      </a>
+      
+      <a href="../categories/project.html" class="category-card">
+        <div class="category-card-header">
+          <span class="category-emoji">🚀</span>
+          <span class="category-name">project</span>
+        </div>
+        <div class="category-stats">
+          <span>2 篇笔记</span>
+          <span>570 字</span>
+        </div>
+        <p class="category-desc">产品开发与项目文档</p>
+        <div class="category-notes-preview">
+          
+          <span class="note-tag">产品需求文档prd</span>
+          
+          <span class="note-tag">技术架构文档arch</span>
+          
+          
+        </div>
+      </a>
+      
+      <a href="../categories/sunlike-desk-lamp.html" class="category-card">
+        <div class="category-card-header">
+          <span class="category-emoji">💡</span>
+          <span class="category-name">sunlike desk lamp</span>
+        </div>
+        <div class="category-stats">
+          <span>2 篇笔记</span>
+          <span>13 字</span>
+        </div>
+        <p class="category-desc">硬件电路学习笔记</p>
+        <div class="category-notes-preview">
+          
+          <span class="note-tag">Boost</span>
+          
+          <span class="note-tag">obsidian-lulu-notes</span>
+          
+          
+        </div>
+      </a>
+      
+      <a href="../categories/机器人基础.html" class="category-card">
+        <div class="category-card-header">
+          <span class="category-emoji">🦾</span>
+          <span class="category-name">机器人基础</span>
+        </div>
+        <div class="category-stats">
+          <span>2 篇笔记</span>
+          <span>0 字</span>
+        </div>
+        <p class="category-desc">机器人学基础知识</p>
+        <div class="category-notes-preview">
+          
+          <span class="note-tag">旋转矩阵</span>
+          
+          <span class="note-tag">未命名</span>
+          
+          
+        </div>
+      </a>
+      
+    </div>
+  </section>
+
+  <section class="all-notes-section">
+    <h2>📄 全部笔记</h2>
+    <div class="notes-list" id="notesList">
+      
+      <a href="../pages/engineer-prompt.html" class="note-list-item">
+        <div class="note-list-icon">📄</div>
+        <div class="note-list-info">
+          <div class="note-list-title">Engineer Prompt</div>
+          <div class="note-list-meta">
+            <span class="note-category-badge">AI coach</span>
+            <span>131 字</span>
+            
+            <span>2 个标题</span>
+            
+          </div>
+        </div>
+        <div class="note-list-arrow">→</div>
+      </a>
+      
+      <a href="../pages/planer-prompt.html" class="note-list-item">
+        <div class="note-list-icon">📄</div>
+        <div class="note-list-info">
+          <div class="note-list-title">🧠 我的全栈成长规划（备份 Prompt）</div>
+          <div class="note-list-meta">
+            <span class="note-category-badge">AI coach</span>
+            <span>194 字</span>
+            
+            <span>21 个标题</span>
+            
+          </div>
+        </div>
+        <div class="note-list-arrow">→</div>
+      </a>
+      
+      <a href="../pages/听力.html" class="note-list-item">
+        <div class="note-list-icon">📄</div>
+        <div class="note-list-info">
+          <div class="note-list-title">听力</div>
+          <div class="note-list-meta">
+            <span class="note-category-badge">CET</span>
+            <span>0 字</span>
+            
+          </div>
+        </div>
+        <div class="note-list-arrow">→</div>
+      </a>
+      
+      <a href="../pages/dji-matrice-4d电池dji.html" class="note-list-item">
+        <div class="note-list-icon">📄</div>
+        <div class="note-list-info">
+          <div class="note-list-title">Dji Matrice 4d电池dji</div>
+          <div class="note-list-meta">
+            <span class="note-category-badge">RM</span>
+            <span>0 字</span>
+            
+          </div>
+        </div>
+        <div class="note-list-arrow">→</div>
+      </a>
+      
+      <a href="../pages/产品需求文档prd.html" class="note-list-item">
+        <div class="note-list-icon">📄</div>
+        <div class="note-list-info">
+          <div class="note-list-title">产品需求文档prd</div>
+          <div class="note-list-meta">
+            <span class="note-category-badge">project</span>
+            <span>159 字</span>
+            
+            <span>11 个标题</span>
+            
+          </div>
+        </div>
+        <div class="note-list-arrow">→</div>
+      </a>
+      
+      <a href="../pages/技术架构文档arch.html" class="note-list-item">
+        <div class="note-list-icon">📄</div>
+        <div class="note-list-info">
+          <div class="note-list-title">技术架构文档arch</div>
+          <div class="note-list-meta">
+            <span class="note-category-badge">project</span>
+            <span>411 字</span>
+            
+            <span>17 个标题</span>
+            
+          </div>
+        </div>
+        <div class="note-list-arrow">→</div>
+      </a>
+      
+      <a href="../pages/boost.html" class="note-list-item">
+        <div class="note-list-icon">📄</div>
+        <div class="note-list-info">
+          <div class="note-list-title">Boost</div>
+          <div class="note-list-meta">
+            <span class="note-category-badge">sunlike desk lamp</span>
+            <span>8 字</span>
+            
+          </div>
+        </div>
+        <div class="note-list-arrow">→</div>
+      </a>
+      
+      <a href="../pages/readme.html" class="note-list-item">
+        <div class="note-list-icon">📄</div>
+        <div class="note-list-info">
+          <div class="note-list-title">obsidian-lulu-notes</div>
+          <div class="note-list-meta">
+            <span class="note-category-badge">sunlike desk lamp</span>
+            <span>5 字</span>
+            
+            <span>1 个标题</span>
+            
+          </div>
+        </div>
+        <div class="note-list-arrow">→</div>
+      </a>
+      
+      <a href="../pages/旋转矩阵.html" class="note-list-item">
+        <div class="note-list-icon">📄</div>
+        <div class="note-list-info">
+          <div class="note-list-title">旋转矩阵</div>
+          <div class="note-list-meta">
+            <span class="note-category-badge">机器人基础</span>
+            <span>0 字</span>
+            
+          </div>
+        </div>
+        <div class="note-list-arrow">→</div>
+      </a>
+      
+      <a href="../pages/未命名.html" class="note-list-item">
+        <div class="note-list-icon">📄</div>
+        <div class="note-list-info">
+          <div class="note-list-title">未命名</div>
+          <div class="note-list-meta">
+            <span class="note-category-badge">机器人基础</span>
+            <span>0 字</span>
+            
+          </div>
+        </div>
+        <div class="note-list-arrow">→</div>
+      </a>
+      
+    </div>
+  </section>
+
+  <footer class="dashboard-footer">
+    <p>最后更新: 2026-05-22 22:48 &nbsp;|&nbsp; Built with ❤️</p>
+  </footer>
+</div>
+
+<script>
+const categoryData = [{"label": "AI coach", "count": 2, "words": 325}, {"label": "CET", "count": 1, "words": 0}, {"label": "RM", "count": 1, "words": 0}, {"label": "project", "count": 2, "words": 570}, {"label": "sunlike desk lamp", "count": 2, "words": 13}, {"label": "\u673a\u5668\u4eba\u57fa\u7840", "count": 2, "words": 0}];
+
+new Chart(document.getElementById('categoryChart'), {
+    type: 'bar',
+    data: {
+        labels: categoryData.map(d => d.label),
+        datasets: [{
+            label: '笔记数量',
+            data: categoryData.map(d => d.count),
+            backgroundColor: ['#7c3aed', '#3b82f6', '#06b6d4', '#10b981', '#f59e0b', '#ef4444'],
+            borderRadius: 6,
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: false }
+        },
+        scales: {
+            y: { beginAtZero: true, ticks: { stepSize: 1 } }
+        }
+    }
+});
+
+new Chart(document.getElementById('wordsChart'), {
+    type: 'doughnut',
+    data: {
+        labels: categoryData.map(d => d.label),
+        datasets: [{
+            data: categoryData.map(d => d.words),
+            backgroundColor: ['#7c3aed', '#3b82f6', '#06b6d4', '#10b981', '#f59e0b', '#ef4444'],
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { position: 'right' }
+        }
+    }
+});
+
+document.getElementById('searchInput').addEventListener('input', function() {
+    const q = this.value.toLowerCase();
+    document.querySelectorAll('.note-list-item').forEach(item => {
+        const title = item.querySelector('.note-list-title').textContent.toLowerCase();
+        const meta = item.querySelector('.note-list-meta').textContent.toLowerCase();
+        item.style.display = title.includes(q) || meta.includes(q) ? '' : 'none';
+    });
+});
+</script>
+
+  </main>
+</div>
+
+<script>
+document.getElementById('sidebarToggle')?.addEventListener('click', function() {
+    document.getElementById('sidebar').classList.toggle('collapsed');
+});
+</script>
+
+</body>
+</html>

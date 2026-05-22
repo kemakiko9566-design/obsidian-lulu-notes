@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>技术架构文档arch - Kema's Notes</title>
+<meta name="description" content="Personal knowledge base & study notes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="../index.html" class="sidebar-logo">Kema's Notes</a>
+      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">&times;</button>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="../index.html" class="nav-item">🏠 仪表盘</a>
+      <a href="../mindmap.html" class="nav-item">🧠 思维导图</a>
+      <a href="../graph.html" class="nav-item">🔗 知识图谱</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">📂 分类</div>
+      
+      <a href="../categories/ai-coach.html" class="nav-item">🤖 AI coach</a>
+      
+      <a href="../categories/cet.html" class="nav-item">📝 CET</a>
+      
+      <a href="../categories/rm.html" class="nav-item">🚁 RM</a>
+      
+      <a href="../categories/project.html" class="nav-item">🚀 project</a>
+      
+      <a href="../categories/sunlike-desk-lamp.html" class="nav-item">💡 sunlike desk lamp</a>
+      
+      <a href="../categories/机器人基础.html" class="nav-item">🦾 机器人基础</a>
+      
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">📄 全部笔记</div>
+      
+      <a href="../pages/engineer-prompt.html" class="nav-item nav-note">Engineer Prompt</a>
+      
+      <a href="../pages/planer-prompt.html" class="nav-item nav-note">🧠 我的全栈成长规划（备份 Prompt）</a>
+      
+      <a href="../pages/听力.html" class="nav-item nav-note">听力</a>
+      
+      <a href="../pages/dji-matrice-4d电池dji.html" class="nav-item nav-note">Dji Matrice 4d电池dji</a>
+      
+      <a href="../pages/产品需求文档prd.html" class="nav-item nav-note">产品需求文档prd</a>
+      
+      <a href="../pages/技术架构文档arch.html" class="nav-item nav-note">技术架构文档arch</a>
+      
+      <a href="../pages/boost.html" class="nav-item nav-note">Boost</a>
+      
+      <a href="../pages/readme.html" class="nav-item nav-note">obsidian-lulu-notes</a>
+      
+      <a href="../pages/旋转矩阵.html" class="nav-item nav-note">旋转矩阵</a>
+      
+      <a href="../pages/未命名.html" class="nav-item nav-note">未命名</a>
+      
+    </nav>
+    <div class="sidebar-footer">
+      <span>🔄 <span id="noteCount">10</span> 篇笔记</span>
+      <span>Kema's Notes</span>
+    </div>
+  </aside>
+
+  <main class="main-content" id="mainContent">
+    
+<article class="note-page">
+  <div class="note-breadcrumb">
+    <a href="../index.html">🏠 首页</a>
+    <span>›</span>
+    <a href="../categories/project.html">project</a>
+    <span>›</span>
+    <span>技术架构文档arch</span>
+  </div>
+
+  <header class="note-header">
+    <h1>技术架构文档arch</h1>
+    <div class="note-meta">
+      <span class="note-category-badge">project</span>
+      <span>📝 411 字</span>
+      
+      <span>📑 17 个章节</span>
+      
+    </div>
+  </header>
+
+  
+  <nav class="note-toc">
+    <h3>📋 目录</h3>
+    <ul>
+      
+      <li style="padding-left: 1.2em" class="toc-level-2">
+        <a href="#1-架构设计">1. 架构设计</a>
+      </li>
+      
+      <li style="padding-left: 1.2em" class="toc-level-2">
+        <a href="#2-技术描述">2. 技术描述</a>
+      </li>
+      
+      <li style="padding-left: 1.2em" class="toc-level-2">
+        <a href="#3-路由定义">3. 路由定义</a>
+      </li>
+      
+      <li style="padding-left: 1.2em" class="toc-level-2">
+        <a href="#4-核心数据结构">4. 核心数据结构</a>
+      </li>
+      
+      <li style="padding-left: 2.4em" class="toc-level-3">
+        <a href="#41-任务类型定义">4.1 任务类型定义</a>
+      </li>
+      
+      <li style="padding-left: 2.4em" class="toc-level-3">
+        <a href="#42-上传状态类型">4.2 上传状态类型</a>
+      </li>
+      
+      <li style="padding-left: 2.4em" class="toc-level-3">
+        <a href="#43-模拟-api-响应">4.3 模拟 API 响应</a>
+      </li>
+      
+      <li style="padding-left: 1.2em" class="toc-level-2">
+        <a href="#5-组件架构">5. 组件架构</a>
+      </li>
+      
+      <li style="padding-left: 1.2em" class="toc-level-2">
+        <a href="#6-mock-数据设计">6. Mock 数据设计</a>
+      </li>
+      
+      <li style="padding-left: 2.4em" class="toc-level-3">
+        <a href="#61-模拟任务数据">6.1 模拟任务数据</a>
+      </li>
+      
+      <li style="padding-left: 2.4em" class="toc-level-3">
+        <a href="#62-模拟-ocr-结果">6.2 模拟 OCR 结果</a>
+      </li>
+      
+      <li style="padding-left: 1.2em" class="toc-level-2">
+        <a href="#7-状态管理设计">7. 状态管理设计</a>
+      </li>
+      
+      <li style="padding-left: 2.4em" class="toc-level-3">
+        <a href="#71-应用状态结构">7.1 应用状态结构</a>
+      </li>
+      
+      <li style="padding-left: 2.4em" class="toc-level-3">
+        <a href="#72-context-设计">7.2 Context 设计</a>
+      </li>
+      
+      <li style="padding-left: 1.2em" class="toc-level-2">
+        <a href="#8-工具函数">8. 工具函数</a>
+      </li>
+      
+      <li style="padding-left: 2.4em" class="toc-level-3">
+        <a href="#81-任务生成算法">8.1 任务生成算法</a>
+      </li>
+      
+      <li style="padding-left: 2.4em" class="toc-level-3">
+        <a href="#82-动画工具">8.2 动画工具</a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  <div class="note-content">
+    <h2 id="1">1. 架构设计</h2>
+<div class="codehilite"><pre><span></span><code><span class="nf">graph</span><span class="w"> </span><span class="n">TD</span>
+<span class="w">    </span><span class="n">A</span><span class="p">[</span><span class="err">用户浏览器</span><span class="p">]</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">React</span><span class="w"> </span><span class="err">前端应用</span><span class="p">]</span>
+<span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">C</span><span class="p">[</span><span class="n">Mock</span><span class="w"> </span><span class="err">数据层</span><span class="p">]</span>
+<span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">D</span><span class="p">[</span><span class="err">状态管理</span><span class="p">]</span>
+<span class="w">    </span><span class="n">D</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">E</span><span class="p">[</span><span class="err">组件状态</span><span class="p">]</span>
+<span class="w">    </span><span class="n">D</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">F</span><span class="p">[</span><span class="err">上下文状态</span><span class="p">]</span>
+
+<span class="w">    </span><span class="n">subgraph</span><span class="w"> </span><span class="s">&quot;前端层&quot;</span>
+<span class="w">        </span><span class="n">B</span>
+<span class="w">        </span><span class="n">D</span>
+<span class="w">        </span><span class="n">E</span>
+<span class="w">        </span><span class="n">F</span>
+<span class="w">    </span><span class="kd">end</span>
+
+<span class="w">    </span><span class="n">subgraph</span><span class="w"> </span><span class="s">&quot;数据层&quot;</span>
+<span class="w">        </span><span class="n">C</span>
+<span class="w">    </span><span class="kd">end</span>
+</code></pre></div>
+
+<h2 id="2">2. 技术描述</h2>
+<ul>
+<li><strong>前端</strong>: React@18 + Tailwind CSS@3 + Vite</li>
+<li><strong>初始化工具</strong>: vite-init</li>
+<li><strong>图标库</strong>: Lucide-react</li>
+<li><strong>图表库</strong>: Chart.js (预留)</li>
+<li><strong>状态管理</strong>: React Context + useState</li>
+<li><strong>后端</strong>: 无 (使用 Mock 数据)</li>
+<li><strong>部署</strong>: 静态文件托管</li>
+</ul>
+<h2 id="3">3. 路由定义</h2>
+<table>
+<thead>
+<tr>
+<th>路由</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/</td>
+<td>主页面，包含文件上传和任务生成功能</td>
+</tr>
+<tr>
+<td>/tasks</td>
+<td>任务详情页，展示任务列表和完成状态</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4">4. 核心数据结构</h2>
+<h3 id="41">4.1 任务类型定义</h3>
+<div class="codehilite"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">Task</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;S&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;A&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;B&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">completed</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="kt">Date</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">completedAt?</span><span class="o">:</span><span class="w"> </span><span class="kt">Date</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">interface</span><span class="w"> </span><span class="nx">TaskState</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">tasks</span><span class="o">:</span><span class="w"> </span><span class="kt">Task</span><span class="p">[];</span>
+<span class="w">  </span><span class="nx">loading</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="42">4.2 上传状态类型</h3>
+<div class="codehilite"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">UploadState</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">file</span><span class="o">:</span><span class="w"> </span><span class="kt">File</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">progress</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;idle&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;uploading&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;processing&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;completed&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;error&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">result</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="43-api">4.3 模拟 API 响应</h3>
+<div class="codehilite"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">GenerateTasksResponse</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">tasks</span><span class="o">:</span><span class="w"> </span><span class="kt">Task</span><span class="p">[];</span>
+<span class="w">  </span><span class="nx">message?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="5">5. 组件架构</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">graph</span><span class="w"> </span><span class="n">TD</span>
+<span class="w">    </span><span class="n">A</span><span class="o">[</span><span class="n">App</span><span class="o">]</span><span class="w"> </span><span class="c1">--&gt; B[HomePage]</span>
+<span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="c1">--&gt; C[TaskDetailPage]</span>
+<span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="c1">--&gt; D[FileUploadZone]</span>
+<span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="c1">--&gt; E[GenerateButton]</span>
+<span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="c1">--&gt; F[TaskPreview]</span>
+<span class="w">    </span><span class="n">C</span><span class="w"> </span><span class="c1">--&gt; G[TaskList]</span>
+<span class="w">    </span><span class="n">C</span><span class="w"> </span><span class="c1">--&gt; H[PriorityFilter]</span>
+
+<span class="w">    </span><span class="n">subgraph</span><span class="w"> </span><span class="ss">&quot;页面组件&quot;</span>
+<span class="w">        </span><span class="n">B</span>
+<span class="w">        </span><span class="n">C</span>
+<span class="w">    </span><span class="k">end</span>
+
+<span class="w">    </span><span class="n">subgraph</span><span class="w"> </span><span class="ss">&quot;功能组件&quot;</span>
+<span class="w">        </span><span class="n">D</span>
+<span class="w">        </span><span class="n">E</span>
+<span class="w">        </span><span class="n">F</span>
+<span class="w">        </span><span class="n">G</span>
+<span class="w">        </span><span class="n">H</span>
+<span class="w">    </span><span class="k">end</span>
+</code></pre></div>
+
+<h2 id="6-mock">6. Mock 数据设计</h2>
+<h3 id="61">6.1 模拟任务数据</h3>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">mockTasks</span><span class="o">:</span><span class="w"> </span><span class="kt">Task</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;复习高等数学第三章&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;重点掌握微分方程的求解方法&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;S&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">completed</span><span class="o">:</span><span class="w"> </span><span class="kt">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="kt">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;完成英语作文练习&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;写一篇关于环保的议论文，字数800字&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;A&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">completed</span><span class="o">:</span><span class="w"> </span><span class="kt">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="kt">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;整理实验报告数据&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;将物理实验数据录入Excel并绘制图表&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;B&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">completed</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="kt">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">    </span><span class="nx">completedAt</span><span class="o">:</span><span class="w"> </span><span class="kt">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">];</span>
+</code></pre></div>
+
+<h3 id="62-ocr">6.2 模拟 OCR 结果</h3>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">mockOCRResults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="s2">&quot;期末考试复习计划：高数第三章、英语作文、物理实验报告&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;作业清单：数学作业第15页、编程项目代码、历史论文大纲&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;今日任务：背单词50个、跑步30分钟、阅读技术文档&quot;</span>
+<span class="p">];</span>
+</code></pre></div>
+
+<h2 id="7">7. 状态管理设计</h2>
+<h3 id="71">7.1 应用状态结构</h3>
+<div class="codehilite"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">AppState</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">upload</span><span class="o">:</span><span class="w"> </span><span class="kt">UploadState</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">tasks</span><span class="o">:</span><span class="w"> </span><span class="kt">TaskState</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">ui</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">theme</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;cyberpunk&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;minimal&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">animations</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="72-context">7.2 Context 设计</h3>
+<ul>
+<li><strong>UploadContext</strong>: 管理文件上传和 OCR 模拟状态</li>
+<li><strong>TaskContext</strong>: 管理任务列表和完成状态</li>
+<li><strong>UIContext</strong>: 管理主题和动画设置</li>
+</ul>
+<h2 id="8">8. 工具函数</h2>
+<h3 id="81">8.1 任务生成算法</h3>
+<div class="codehilite"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">generateTasksFromText</span><span class="p">(</span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">Task</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 简单的关键词匹配算法</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">keywords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s1">&#39;考试&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;S&#39;</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="kd">const</span><span class="p">,</span><span class="w"> </span><span class="nx">category</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;学习&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="s1">&#39;作业&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;A&#39;</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="kd">const</span><span class="p">,</span><span class="w"> </span><span class="nx">category</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;学习&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="s1">&#39;运动&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;B&#39;</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="kd">const</span><span class="p">,</span><span class="w"> </span><span class="nx">category</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;健康&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="c1">// 根据关键词生成任务</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">keywords</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">keyword</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">text</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">keyword</span><span class="p">))</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">keyword</span><span class="p">,</span><span class="w"> </span><span class="nx">index</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({</span>
+<span class="w">      </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="si">}</span><span class="sb">-</span><span class="si">${</span><span class="nx">index</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="sb">`完成</span><span class="si">${</span><span class="nx">keyword</span><span class="si">}</span><span class="sb">相关任务`</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="sb">`基于识别内容生成的</span><span class="si">${</span><span class="nx">keywords</span><span class="p">[</span><span class="nx">keyword</span><span class="p">].</span><span class="nx">category</span><span class="si">}</span><span class="sb">任务`</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="kt">keywords</span><span class="p">[</span><span class="nx">keyword</span><span class="p">].</span><span class="nx">priority</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">completed</span><span class="o">:</span><span class="w"> </span><span class="kt">false</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="kt">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}));</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="82">8.2 动画工具</h3>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">animations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">pulse</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;animate-pulse&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">bounce</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;animate-bounce&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">fadeIn</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;animate-fade-in&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">slideIn</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;animate-slide-in&#39;</span>
+<span class="p">};</span>
+</code></pre></div>
+  </div>
+
+  
+</article>
+
+  </main>
+</div>
+
+<script>
+document.getElementById('sidebarToggle')?.addEventListener('click', function() {
+    document.getElementById('sidebar').classList.toggle('collapsed');
+});
+</script>
+
+</body>
+</html>
